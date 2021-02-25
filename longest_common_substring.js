@@ -28,7 +28,7 @@ let longestSubstr = (str1, str2) => {
             result = str;
             if (maxlength < result.length) {
                 maxlength = result.length;
-               // console.log(result);
+               //  console.log(result);
             }
         } else {
                 str = '';
