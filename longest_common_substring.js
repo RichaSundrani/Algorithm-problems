@@ -16,7 +16,7 @@ The longest common substring is “abcdez” and is of length 6
 */
 
 let input1 = 'tomandjerry';
-let input2 = 'likecheesejerry';
+let input2 = 'jerrylikecheese';
 
 let longestSubstr = (str1, str2) => {
     let result = '';
@@ -28,7 +28,7 @@ let longestSubstr = (str1, str2) => {
             result = str;
             if (maxlength < result.length) {
                 maxlength = result.length;
-               //  console.log(result);
+                // console.log(result);
             }
         } else {
                 str = '';
