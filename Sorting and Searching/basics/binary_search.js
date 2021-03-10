@@ -5,10 +5,10 @@ let binarySearch = (arr, num) => {
     let end = arr.length - 1;
     let middle = Math.floor((start + end) / 2);
 
-    // This is If condition is for sorted array only
-    // if((num > arr[arr.length -1] )|| (num < arr[0])) {
-    //     return -1;
-    // }
+    // This If condition is for sorted array only so is the binary search. 
+    if((num > arr[arr.length -1] )|| (num < arr[0])) {
+        return -1;
+    }
     while ((arr[middle] !== num) && (start !== end)) {
         console.log(start, middle, end);
         if (num < arr[middle]) {
