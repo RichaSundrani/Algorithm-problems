@@ -30,19 +30,18 @@ Local names do not start with a '+' character.
 */
 
 
-let input = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"];
-var numUniqueEmails = function(emails) {
+let input = ["test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"];
+var numUniqueEmails = function (emails) {
     let uniqueEmails = new Set();
-    let resp = [];
-    emails.forEach(e => {
-        let current = e.split('@');
+    emails.forEach(email => {
+        let current = email.split('@');
         let domain = current[1];
         let local = current[0].split('+')[0].split('.').join('');
         let updated = `${local}.${domain}`;
-        !resp.includes(updated) ? resp.push(updated) : null; 
-        console.log(resp);       
+        uniqueEmails.add(updated);
+        console.log(uniqueEmails);
     })
-    return resp.length;
+    return uniqueEmails.size;
 };
 
 console.log(numUniqueEmails(input));
