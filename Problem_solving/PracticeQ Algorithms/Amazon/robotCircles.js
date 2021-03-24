@@ -1,4 +1,4 @@
-let commands = ["RGRGRGRG"];
+let commands = ["RGRGRGRG", "GLGLGLGLRG",  "GLGRG"];
  
 const doesCircleExists = (commands) => {
    // Direction: N=0, E=1, S=2, W=3
@@ -49,4 +49,4 @@ const doesCircleExists = (commands) => {
  
 let output = doesCircleExists(commands);
 console.log(output);
-console.log('Done');ß
+console.log('Done');
