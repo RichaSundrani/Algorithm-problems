@@ -37,21 +37,43 @@ The number of nodes in the tree is in the range [1, 3 * 10^4].
     this.right = (right===undefined ? null : right)
  }
  var maxPathSum = function(root) {
-    if(root == null) {
-        return 0
-    }    
-    let result =Number.MIN_SAFE_INTEGER; 
-    const dfs = (node) => {
-        if(node == null){
+    let maxPathSumNum = -Infinity;
+    
+    const maxPathSumRec = function(node){
+        if(!node){
             return 0;
-        } 
-        const left = Math.max(0, dfs(node.left));
-        const right = Math.max(0, dfs(node.right));
-        result = Math.max(result, left + right + node.val);
-        return Math.max(left, right) + node.val;
-     }     
-    dfs(root);
-    return result;    
+        }
+        
+        let leftMax = Math.max(maxPathSumRec(node.left), 0);
+        let rightMax = Math.max(maxPathSumRec(node.right), 0);
+        maxPathSumNum = Math.max(maxPathSumNum, leftMax + rightMax + node.val);
+        return Math.max(leftMax, rightMax) + node.val;
+    };
+    
+    maxPathSumRec(root);
+    return maxPathSumNum;
 };
 
 console.log(maxPathSum([-10,9,20,null,null,15,7])); 
+
+
+
+
+
+// var maxPathSum = function(root) {
+//     if(root == null) {
+//         return 0; 
+//     }    
+//     let result =Number.MIN_SAFE_INTEGER; 
+//     const dfs = (node) => {
+//         if(node == null){
+//             return 0;
+//         } 
+//         const left = Math.max(0, dfs(node.left));
+//         const right = Math.max(0, dfs(node.right));
+//         result = parseInt(Math.max(result, left + right + node.val));
+//         return Math.max(left, right) + node.val;
+//      }     
+//     dfs(root);
+//     return result;    
+// };

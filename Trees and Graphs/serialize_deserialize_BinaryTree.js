@@ -73,24 +73,17 @@ console.log(serialize(root));
  */
 var deserialize = function(data) {
     if (!data || data.length === 0) return null;
-    
     const valArr = data.split(',');
-
     if (valArr.length === 1) return new TreeNode(valArr.shift());
-    
     const root = new TreeNode(valArr.shift());
-    
     const queue = [root];
-    
     for (let i = 0; i < valArr.length; i++) {
         const leaf = queue.shift();
-        
         if (valArr[i] !== 'null') {
             const leftLeaf = new TreeNode(valArr[i]);
             leaf.left = leftLeaf;
             queue.push(leftLeaf);
         }
-        
         if (valArr[++i] !== 'null') {
             const rightLeaf = new TreeNode(valArr[i]);
             leaf.right = rightLeaf;
